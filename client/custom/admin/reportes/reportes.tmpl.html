@@ -1,0 +1,113 @@
+<div layout="row" layout-padding layout-wrap layout-fill style="padding-top:0%">
+  <md-whiteframe flex class="md-whiteframe-3dp margin-left-10 margin-right-10 custom-theme"
+    
+  >
+    <div ng-cloak layout-fill>
+      <md-content class="custom-theme" layout-fill >
+        <!-- <md-toolbar class="md-table-toolbar md-default" layout="row">
+          <div class="md-toolbar-tools" layout-align="right center">
+            <span flex></span>
+            <md-button  class="md-fab md-primary md-mini" aria-label="Add payment" ng-click="">
+              <md-icon md-font-icon="zmdi zmdi-download"></md-icon>
+              <md-tooltip>Exportar a excel</md-tooltip>
+            </md-button>
+          </div>
+        </md-toolbar> -->
+        <md-toolbar class="md-table-toolbar md-default">
+          <div class="md-toolbar-tools">
+            <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+            <form flex="">
+              <input type="text" ng-model="vm.search" placeholder="Buscar...">
+            </form>
+            <!-- <span class="md-subhead">Filtrar fecha:</span>
+            <md-datepicker ng-model="vm.initDate"  md-placeholder="Inicio"></md-datepicker>
+            <md-datepicker ng-model="vm.endDate" md-placeholder="Fin"></md-datepicker>
+            <md-button aria-label="search payment" class="md-icon-button" ng-show="vm.search.length || vm.initDate || vm.endDate">
+              <md-icon md-font-icon="zmdi zmdi-close" ng-click="vm.clearQueryFields()"></md-icon>
+            </md-button> -->
+          </div>
+        </md-toolbar>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab>
+            <md-tab-label>
+              <!-- <md-icon md-font-icon="zmdi zmdi-check-circle"></md-icon> -->
+              Reportes
+            </md-tab-label>
+            <md-tab-body >
+              <!-- Table starts here -->
+
+              <md-table-container class="custom-theme" style="background-image: url(logoTransparente.png);background-size: 35em 18em;background-repeat: no-repeat;background-attachment: fixed;background-position: 55% 64%;margin: 0px 20px 0px 20px;">
+                <table md-table class="md-primary md-data-table customTable">
+                  <thead md-head md-order="orderBy">
+                    <tr md-row>
+                      <th md-column>ID</th>
+                      <th md-column id="deudorTH" md-order-by="NOMBREDELCLIENTE">Deudor</th>
+                      <th md-column md-order-by="MONTOTOTALDELADEUDO">Total Adeudo</th>
+                      <th md-column>Total Pagare</th>
+                      <th md-column>Fecha V.Pagare</th>
+                      <th md-column>Fecha Cobro</th>
+                      <th md-column>Cobro Capital</th>
+                      <th md-column>Cobro Intereses</th>
+                      <th md-column>Condonaciones</th>
+                      <th md-column>Total</th>
+                      <th md-column md-order-by="SALDO">Saldo</th>
+                      <th md-column>Etapa Procesal</th>
+                      <th md-column>Juzgado</th>
+                      <th md-column>Expediente</th>
+                      <th md-column id="commentsTH">Gestion</th>
+                      <th md-column>Dacion de Pagos</th>
+                      <th md-column>Fecha Ult. Contacto</th>
+                      <th md-column>Opciones</th>
+                    </tr>
+                  </thead>
+                  <tbody md-body>
+                    <tr ng-if="vm.reportes == 0 && vm.loading">
+                      <td md-cell colspan="12" style="text-align: center">
+                        Buscando...
+                      </td>
+                    </tr>
+                    <tr ng-if="vm.reportes == 0 && vm.loading == false">
+                      <td md-cell colspan="12" style="text-align: center">
+                        No se encontraron reportes
+                      </td>
+                    </tr>
+                    <tr md-row ng-repeat="reporte in vm.reportes | filter:vm.search | dateRange:vm.initDate:vm.endDate | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit | orderBy: orderBy ">
+                      <td md-cell>{{reporte.NUMEROID}}</td>
+                      <td md-cell>{{reporte.NOMBREDELCLIENTE}}</td>
+                      <td md-cell>{{reporte.MONTOTOTALDELADEUDO | currency: "$" : "2"}}</td>
+                      <td md-cell>{{reporte.MONTODELPAGARE | currency: "$" : "2"}}</td>
+                      <td md-cell>{{reporte.FECHAVENCIMIENTOPAGARE | date:'dd/MM/yyyy'}}</td>
+                      <td md-cell>{{reporte.FECHADECOBRO | date:'dd/MM/yyyy'}}</td>
+                      <td md-cell>{{reporte.COBRODECAPITAL | currency: "$" : "2"}}</td>
+                      <td md-cell>{{reporte.COBRODEINTERESES | currency: "$" : "2"}}</td>
+                      <td md-cell>{{reporte.CONDONACIONES | currency: "$" : "2"}}</td>
+                      <td md-cell>{{reporte.TOTAL | currency: "$" : "2"}}</td>
+                      <td md-cell>{{vm.checkSaldo(reporte.SALDO) | currency: "$" : "2"}}</td>
+                      <td md-cell>{{reporte.ETAPAPROCESAL}}</td>
+                      <td md-cell>{{reporte.JUZGADO}}</td>
+                      <td md-cell>{{reporte.EXPEDIENTE}}</td>
+                      <td md-cell class="comments" >
+                        {{vm.longText(reporte.COMENTARIOS)}}
+                        <md-tooltip>{{reporte.COMENTARIOS}}</md-tooltip>
+                      </td>
+                      <td md-cell>{{reporte.DACIONDEPAGO}}</td>
+                      <td md-cell>{{reporte.FECHAULTIMOCONTACTO | date:'dd/MM/yyyy'}}</td>
+                      <td md-cell>
+                        <md-button class="md-icon-button" ng-click="vm.showDetail($event, reporte);">
+                          <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
+                          <md-tooltip>Ver detalle</md-tooltip>
+                        </md-button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </md-table-container>
+              <md-progress-linear class="padding-bottom-10" md-mode="indeterminate" ng-if="vm.loading"></md-progress-linear>
+              <md-table-pagination md-limit="vm.query.limit" md-page-select md-page="vm.query.page" md-total="{{vm.reportes.length}}"></md-table-pagination>
+            </md-tab-body>
+          </md-tab>
+        </md-tabs>
+      </md-content>
+    </div>
+  </md-whiteframe>
+</div>

@@ -1,0 +1,37 @@
+<md-card style="min-width: 25%">
+    <md-toolbar class="padding-20 text-center" style="background-color:rgb(30, 44, 86) !important;">
+        <img ng-src="{{::vm.triSettings.logo}}" alt="{{vm.triSettings.name}}">
+        <h1 class="md-headline" translate>SOLECORP</h1>
+        <hr>
+    </md-toolbar>
+
+    <md-content class="md-padding">
+        <form name="login" ng-submit="vm.loginClick()">
+            <md-input-container class="md-block">
+                <label for="user" translate>Usuario</label>
+                <input id="user" label="user" name="user" type="text" ng-model="vm.user.name" required/>
+                <div ng-messages="login.user.$error" md-auto-hide="false" ng-show="login.user.$touched">
+                    <div ng-message when="required"><span translate>Por favor, ingrese su Usuario.</span></div>
+                    <div ng-message when="user"><span translate>Credenciales invalidas.</span></div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label for="password" translate>Contraseña</label>
+                <input  id="password" label="password" name="password" type="password" ng-model="vm.user.password" required/>
+                <div ng-messages for="login.password.$error" md-auto-hide="false" ng-show="login.password.$touched">
+                    <div ng-message when="required"><span translate>Por favor, ingrese su contraseña.</span></div>
+                </div>
+            </md-input-container>
+
+            <md-button type="submit" class="md-raised md-primary full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" ng-disabled="login.$invalid" translate="Entrar" aria-label="{{'Log in' | triTranslate}}"></md-button>
+
+            <!-- <md-button class="md-primary full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" href="#/signup" translate="¿Olvidaste tu contraseña?, contáctanos" aria-label="{{'Don\'t have an account? Create one now' | triTranslate}}"></md-button> -->
+        </form>
+    </md-content>
+    <!-- <div class="app-loader" flex layout="column" layout-align="center center"> -->
+    <!-- <img src="{{loader.triSettings.logo}}" alt=""> -->
+    <md-progress-linear class="padding-bottom-10" md-mode="indeterminate" ng-if="vm.loading"></md-progress-linear>
+    <!-- <h2 class="padding-bottom-100">{{loader.triSettings.name}}</h2> -->
+<!-- </div> -->
+
+</md-card>

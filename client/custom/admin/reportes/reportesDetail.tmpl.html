@@ -1,0 +1,677 @@
+<md-dialog aria-label="add payment" style="min-width: 88%;">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 >{{vmChild.report.NOMBREDELCLIENTE}}</h2>
+      <span flex></span>
+      <md-button aria-label="close" class="md-icon-button" ng-click="vmChild.close()"><i class="fa fa-close"></i>
+      </md-button>
+    </div>
+    <md-progress-linear class="padding-bottom-10" md-mode="indeterminate" ng-if="vmChild.loading"></md-progress-linear>
+  </md-toolbar>
+  
+  <md-dialog-content>
+    <md-tabs md-dynamic-height md-border-bottom class="custom-tabs" md-selected="vmChild.selectedTab" ng-hide="vmChild.loading">
+      <md-tab md-on-select="vmChild.setDefaults()">
+        <md-tab-label>
+          General
+        </md-tab-label>
+        <md-tab-body>
+          <div class="md-dialog-content">
+            <h2 style="margin-top: 0;">Detalle</h2>
+            <div layout="row">
+
+              <md-input-container style="width: 20%">
+                <label for="import" translate>ID</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.NUMEROID" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 80%">
+                <label for="import" translate>Deudor</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.NOMBREDELCLIENTE" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Total Adeudo</label>
+                <md-icon class="zmdi zmdi-money" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.MONTOTOTALDELADEUDO" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Total Pagare</label>
+                <md-icon class="zmdi zmdi-money" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.MONTODELPAGARE" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Fecha V. Pagare</label>
+                <md-icon class="zmdi zmdi-calendar" style="padding-left: 1em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.FECHAVENCIMIENTOPAGARE" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Fecha Cobro</label>
+                <md-icon class="zmdi zmdi-calendar" style="padding-left: 1em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.FECHADECOBRO" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Cobro Capital</label>
+                <md-icon class="zmdi zmdi-money" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.COBRODECAPITAL" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Cobro Intereses</label>
+                <md-icon class="zmdi zmdi-money" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.COBRODEINTERESES" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Condonaciones</label>
+                <md-icon class="zmdi zmdi-money" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.CONDONACIONES" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Total</label>
+                <md-icon class="zmdi zmdi-money" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.TOTAL" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Saldo</label>
+                <md-icon class="zmdi zmdi-money" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.SALDO" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Etapa Procesal</label>
+                <md-icon class="zmdi" style="padding-left: 1em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.ETAPAPROCESAL" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Juzgado</label>
+                <md-icon class="zmdi" style="padding-left: 1em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.JUZGADO" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Expediente</label>
+                <md-icon class="zmdi" style="padding-left: 1em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.EXPEDIENTE" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Dacion de Pago</label>
+                <md-icon class="zmdi" style="padding-left: 1em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.DACIONDEPAGO" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Fecha Ult. Contacto</label>
+                <md-icon class="zmdi zmdi-calendar" style="padding-left: 1em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.FECHAULTIMOCONTACTO" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 100%">
+                <label for="import" translate>Ultima Gestion</label>
+                <md-icon class="zmdi" style="padding-left: 1em;"></md-icon>
+                <textarea  id="import" label="import" name="import" ng-model="vmChild.report.COMENTARIOS" rows="10" md-select-on-focus disabled></textarea>
+              </md-input-container>
+
+            </div>
+            
+          </div>
+        </md-tab-body>
+      </md-tab>
+
+      <md-tab md-on-select="vmChild.setDefaults()">
+        <md-tab-label>
+          Deudor
+        </md-tab-label>
+        <md-tab-body>
+          <div class="md-dialog-content">
+            <h2 style="margin-top: 0;">Información Personal Del Deudor</h2>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Código</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.report.NUMEROID" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Nombre</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorNombre" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 33%">
+                <label for="import" translate>Teléfono</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorTelefono" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 33%">
+                <label for="import" translate>Nextel</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorNextel" disabled/>
+              </md-input-container>
+              
+              <md-input-container style="width: 33%">
+                <label for="import" translate>Correo</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorCorreo" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>IFE</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorIFE" disabled/>
+              </md-input-container>
+              
+              <md-input-container style="width: 50%">
+                <label for="import" translate>RFC</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorRFC" disabled/>
+              </md-input-container>
+
+              
+
+            </div>
+            <h2 style="margin-top: 0;">Dirección</h2>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Calle</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorCalle" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Número</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorNumero" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Colonia</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorColonia" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Localidad</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorLocalidad" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Municipio</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorMunicipio" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Estado</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorEstado" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>CP</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.deudorCP" disabled/>
+              </md-input-container>
+
+            </div>
+            
+          </div>
+        </md-tab-body>
+      </md-tab>
+      <md-tab md-on-select="vmChild.setDefaults()">
+        <md-tab-label>
+          Aval
+        </md-tab-label>
+        <md-tab-body>
+          <div class="md-dialog-content">
+            <h2 style="margin-top: 0;">Información Personal Del Aval</h2>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Nombre</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalNombre" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 33%">
+                <label for="import" translate>Teléfono</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalTelefono" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 33%">
+                <label for="import" translate>Nextel</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalNextel" disabled/>
+              </md-input-container>
+              
+              <md-input-container style="width: 33%">
+                <label for="import" translate>Correo</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalCorreo" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>IFE</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalIFE" disabled/>
+              </md-input-container>
+              
+              <md-input-container style="width: 50%">
+                <label for="import" translate>RFC</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalRFC" disabled/>
+              </md-input-container>
+
+            </div>
+            <h2 style="margin-top: 0;">Dirección</h2>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Calle</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalCalle" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Número</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalNumero" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Colonia</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalColonia" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Localidad</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalLocalidad" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Municipio</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalMunicipio" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Estado</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalEstado" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>CP</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.avalCP" disabled/>
+              </md-input-container>
+
+              
+
+            </div>
+            
+          </div>
+        </md-tab-body>
+      </md-tab>
+      <md-tab md-on-select="vmChild.setDefaults()">
+        <md-tab-label>
+          Representante Legal
+        </md-tab-label>
+        <md-tab-body>
+          <div class="md-dialog-content">
+            <h2 style="margin-top: 0;">Información Personal Del Representante Legal</h2>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Nombre</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repNombre" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 33%">
+                <label for="import" translate>Teléfono</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repTelefono" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 33%">
+                <label for="import" translate>Nextel</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repNextel" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 33%">
+                <label for="import" translate>Correo</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repCorreo" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>IFE</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repIFE" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>RFC</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repRFC" disabled/>
+              </md-input-container>
+
+            </div>
+            <h2 style="margin-top: 0;">Dirección</h2>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Calle</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repCalle" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Número</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repNumero" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Colonia</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repColonia" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Localidad</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repLocalidad" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Municipio</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repMunicipio" disabled/>
+              </md-input-container>
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>Estado</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repEstado" disabled/>
+              </md-input-container>
+
+            </div>
+            <div layout="row">
+
+              <md-input-container style="width: 50%">
+                <label for="import" translate>CP</label>
+                <md-icon class="zmdi" style="padding-left: 1.5em;"></md-icon>
+                <input id="import" label="import" name="import" type="text" ng-model="vmChild.listado.repCP" disabled/>
+              </md-input-container>
+
+            </div>
+          </div>
+        </md-tab-body>
+      </md-tab>
+      <md-tab md-on-select="vmChild.setDefaults()">
+        <md-tab-label>
+          Documentos
+        </md-tab-label>
+        <md-tab-body>
+          <div class="md-dialog-content">
+            <!-- <h2 style="margin-top: 0;">Información</h2> -->
+            <md-table-container class="custom-theme" style="width: 50%;margin-left: 25%;margin-bottom: 3em;">
+              <table md-table class="md-primary md-data-table">
+                <thead md-head md-order="orderBy">
+                  <tr md-row>
+                    <!-- <th md-column>Archivo</th> -->
+                    <th md-column>Nombre</th>
+                    <th md-column>Opciones</th>
+                  </tr>
+                </thead>
+                <tbody md-body>
+                  <tr ng-if="vm.reportes == 0">
+                    <td md-cell colspan="3" style="text-align: center">
+                      No se encontraron reportes
+                    </td>
+                  </tr>
+                  <tr md-row ng-repeat="documento in vmChild.listado.documentos | filter:vm.search | dateRange:vm.initDate:vm.endDate | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit | orderBy: orderBy ">
+                    <td md-cell>{{documento.docNombre}}</td>
+                    <td md-cell>
+                      <md-button class="md-icon-button" ng-click="vmChild.download(documento)">
+                        <md-icon md-font-icon="zmdi zmdi-download"></md-icon>
+                        <md-tooltip>Descargar</md-tooltip>
+                      </md-button>
+                      <!-- <md-button class="md-icon-button" ng-click="vm.showDetail($event, reporte);">
+                        <md-icon md-font-icon="zmdi zmdi-search-in-file"></md-icon>
+                        <md-tooltip>Ver</md-tooltip>
+                      </md-button> -->
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </md-table-container>
+            <md-table-pagination md-limit="vm.query.limit" md-page-select md-page="vm.query.page" md-total="{{vmChild.listado.documentos.length}}"></md-table-pagination>
+          </div>
+        </md-tab-body>
+      </md-tab>
+      <md-tab md-on-select="vmChild.setDefaults()">
+        <md-tab-label>
+          Gestion
+        </md-tab-label>
+        <md-tab-body>
+          <div class="md-dialog-content">
+            <md-table-container class="custom-theme" style="margin-bottom: 6em;">
+              <table md-table class="md-primary md-data-table">
+                <thead md-head md-order="orderBy">
+                  <tr md-row>
+                    <th md-column>Etapa</th>
+                    <th md-column>Fecha Gestion</th>
+                    <th md-column>Gestiones</th>
+                    <th md-column>Juzgado</th>
+                    <th md-column>Num. Expediente</th>
+                    <th md-column>Distr. Judicial</th>
+                    <!-- <th md-column>Opciones</th> -->
+                  </tr>
+                </thead>
+                <tbody md-body>
+                  <tr ng-if="vm.reportes == 0">
+                    <td md-cell colspan="6" style="text-align: center">
+                      No se encontraron reportes
+                    </td>
+                  </tr>
+                  <tr md-row ng-repeat="seguimiento in vmChild.listado.seguimientos | filter:vm.search | dateRange:vm.initDate:vm.endDate | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit | orderBy: orderBy ">
+                    <td md-cell>{{seguimiento.segEtapa}}</td>
+                    <td md-cell>{{seguimiento.segFecha | date: 'dd/MM/yyyy'}}</td>
+                    <td md-cell style="width: 24%;">{{seguimiento.segComentarios}}</td>
+                    <td md-cell>{{seguimiento.segJuzgado}}</td>
+                    <td md-cell>{{seguimiento.segExpediente}}</td>
+                    <td md-cell>{{seguimiento.segDistritoJudicial}}</td>
+                    <!-- <td md-cell>
+                      <md-button class="md-icon-button" ng-click="vm.showDetail($event, reporte);">
+                        <md-icon md-font-icon="zmdi zmdi-download"></md-icon>
+                        <md-tooltip>Ver Comentarios</md-tooltip>
+                      </md-button>
+                    </td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </md-table-container>
+            <md-table-pagination md-limit="vmChild.query.limit" md-page-select md-page="vmChild.query.page" md-total="{{vmChild.listado.seguimientos.length}}"></md-table-pagination>
+          </div>
+        </md-tab-body>
+      </md-tab>
+      <md-tab md-on-select="vmChild.setDefaults()">
+        <md-tab-label>
+          Pagos
+        </md-tab-label>
+        <md-tab-body>
+          <div class="md-dialog-content">
+            <!-- <h2 style="margin-top: 0;">Información</h2> -->
+            <md-table-container class="custom-theme">
+              <table md-table class="md-primary md-data-table">
+                <thead md-head md-order="orderBy">
+                  <tr md-row>
+                    <th md-column>Fecha</th>
+                    <th md-column>Capital</th>
+                    <th md-column>Intereses</th>
+                    <th md-column>Condonaciones</th>
+                    <th md-column>Observaciones</th>
+                    <!-- <th md-column>Opciones</th> -->
+                  </tr>
+                </thead>
+                <tbody md-body>
+                  <tr ng-if="vm.reportes == 0">
+                    <td md-cell colspan="9" style="text-align: center">
+                      No se encontraron reportes
+                    </td>
+                  </tr>
+                  <tr md-row ng-repeat="pago in vmChild.listado.pagos | filter:vm.search | dateRange:vm.initDate:vm.endDate | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit | orderBy: orderBy ">
+                    <td md-cell>{{pago.pagoFecha | date: 'dd/MM/yyyy'}}</td>
+                    <td md-cell>{{pago.pagoCapital | currency: "$" : "2"}}</td>
+                    <td md-cell>{{pago.pagoIntereses | currency: "$" : "2"}}</td>
+                    <td md-cell>{{pago.pagoCondonaciones | currency: "$" : "2"}}</td>
+                    <td md-cell style="width: 24%;">{{pago.pagoObservaciones}}</td>
+                    <!-- <td md-cell>
+                      <md-button class="md-icon-button" ng-click="vm.showDetail($event, reporte);">
+                        <md-icon md-font-icon="zmdi zmdi-search-in-file"></md-icon>
+                        <md-tooltip>Ver</md-tooltip>
+                      </md-button>
+                    </td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </md-table-container>
+            <md-table-pagination md-limit="vmChild.query.limit" md-page-select md-page="vmChild.query.page" md-total="{{vmChild.listado.pagos.length}}"></md-table-pagination>
+          </div>
+        </md-tab-body>
+      </md-tab>
+      <md-tab md-on-select="vmChild.setDefaults()">
+        <md-tab-label>
+          Convenios
+        </md-tab-label>
+        <md-tab-body>
+          <div class="md-dialog-content">
+            <!-- <h2 style="margin-top: 0;">Información</h2> -->
+            <md-table-container class="custom-theme">
+              <table md-table class="md-primary md-data-table">
+                <thead md-head md-order="orderBy">
+                  <tr md-row>
+                    <th md-column>Fecha</th>
+                    <th md-column>Capital</th>
+                    <th md-column>Intereses</th>
+                    <th md-column>Condonaciones</th>
+                    <th md-column>Observaciones</th>
+                    <!-- <th md-column>Opciones</th> -->
+                  </tr>
+                </thead>
+                <tbody md-body>
+                  <tr ng-if="vm.reportes == 0">
+                    <td md-cell colspan="5" style="text-align: center">
+                      No se encontraron reportes
+                    </td>
+                  </tr>
+                  <tr md-row ng-repeat="convenio in vmChild.listado.convenios | filter:vm.search | dateRange:vm.initDate:vm.endDate | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit | orderBy: orderBy ">
+                    <td md-cell>{{convenio.conFecha | date: 'dd/MM/yyyy'}}</td>
+                    <td md-cell>{{convenio.conCapital | currency: "$" : "2"}}</td>
+                    <td md-cell>{{convenio.conIntereses | currency: "$" : "2"}}</td>
+                    <td md-cell>{{convenio.conCondonaciones | currency: "$" : "2"}}</td>
+                    <td md-cell style="width: 24%;">{{convenio.conObservaciones}}</td>
+                    <!-- <td md-cell>
+                      <md-button class="md-icon-button" ng-click="vm.showDetail($event, reporte);">
+                        <md-icon md-font-icon="zmdi zmdi-search-in-file"></md-icon>
+                        <md-tooltip>Ver</md-tooltip>
+                      </md-button>
+                    </td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </md-table-container>
+            <md-table-pagination md-limit="vmChild.query.limit" md-page-select md-page="vmChild.query.page" md-total="{{vmChild.listado.convenios.length}}"></md-table-pagination>
+          </div>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+  </md-dialog-content>
+</md-dialog>

@@ -1,0 +1,20 @@
+<md-card style="min-width: 25%">
+    <md-toolbar class="padding-20 text-center">
+        <img ng-src="{{::vm.triSettings.logo}}" alt="{{vm.triSettings.name}}">
+    </md-toolbar>
+
+    <md-content class="md-padding">
+        <p>Seleccione la privada</p>
+        <form>
+            <md-input-container id="SelectCommunity" style="width: 100%;">
+              <label>Privadas</label>
+                <md-select ng-model="vm.community">
+                    <md-option ng-repeat="community in vm.communities" ng-value="community.id">
+                        {{community.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-button type="submit" class="md-raised md-primary full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" ng-click="vm.goHome()">Entrar</md-button>
+        </form>
+    </md-content>
+</md-card>

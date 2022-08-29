@@ -1,0 +1,21 @@
+<md-toolbar class="sidebar-left-toolbar" md-theme="{{::triSkin.elements.logo}}">
+    <div class="md-toolbar-tools" layout="row" layout-align="start center">
+
+        <div class="sidebar-left-logo">
+            <img ng-src="{{::vm.sidebarInfo.appLogo}}" alt="{{::vm.sidebarInfo.appName}}">
+        </div>
+
+        <h2 flex class="sidebar-left-title">{{::vm.sidebarInfo.appName}}</h2>
+
+        <md-button class="md-icon-button sidebar-left-icon" ng-click="vm.toggleIconMenu()" aria-label="Open side menu">
+            <md-icon md-font-icon ng-class="{ 'zmdi zmdi-chevron-right' : vm.layout.sideMenuSize == 'icon', 'zmdi zmdi-chevron-left' : vm.layout.sideMenuSize == 'full' }"></md-icon>
+        </md-button>
+
+    </div>
+    <div class="md-toolbar-tools" layout="row" layout-align="start center" style="max-height: 2em;border: 1px solid rgba(165, 0, 0, 0.42);background-color: rgb(214, 0, 0);">
+        <md-icon md-font-icon class="fa fa-bank fa-2x" style="margin-left: -7px !important;margin-right: 10px !important;"></md-icon><h4 flex class="sidebar-left-title">Menú Principal</h4>
+
+    </div>
+</md-toolbar>
+
+<tri-menu md-theme="{{triSkin.elements.sidebar}}" flex layout="column"></tri-menu>
