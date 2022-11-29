@@ -1,1 +1,2 @@
+[![Board Status](https://dev.azure.com/escoserra/89bf6cc3-e336-47ed-b884-d9cd874ef98e/1bc1539d-5f6d-4cb8-8f62-310d3a255463/_apis/work/boardbadge/17795e53-1ec7-4643-bd4d-9fac8f920b52)](https://dev.azure.com/escoserra/89bf6cc3-e336-47ed-b884-d9cd874ef98e/_boards/board/t/1bc1539d-5f6d-4cb8-8f62-310d3a255463/Microsoft.RequirementCategory)
 # dev_cobranza
